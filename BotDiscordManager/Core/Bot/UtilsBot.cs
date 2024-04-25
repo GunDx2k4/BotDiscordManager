@@ -1,6 +1,6 @@
 ﻿namespace BotDiscordManager.Core.Bot
 {
-    public class Utils
+    public class UtilsBot
     {
         public static string ItalicsText(string text)
         {

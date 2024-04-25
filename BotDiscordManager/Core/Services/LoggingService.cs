@@ -1,9 +1,10 @@
 ﻿using Discord;
 using System.Threading.Tasks;
-using System;
 using Discord.Commands;
 using System.Linq;
 using Discord.WebSocket;
+using BotDiscordManager.Utils;
+using System;
 
 namespace BotDiscordManager.Core.Services
 {
@@ -32,13 +33,13 @@ namespace BotDiscordManager.Core.Services
         {
             if (message.Exception is CommandException cmdException)
             {
-                Logger.Debug($"[Command/{message.Severity}] {cmdException.Command.Aliases.First()}"
+                Console.WriteLine($"[Command/{message.Severity}] {cmdException.Command.Aliases.First()}"
                     + $" failed to execute in {cmdException.Context.Channel}.");
-                Logger.Info($"{cmdException}");
+                Console.WriteLine($"{cmdException}");
             }
             else
             {
-                Logger.Debug($"[General/{message.Severity}] {message}");
+                Console.WriteLine($"[General/{message.Severity}] {message}");
             }
             return Task.CompletedTask;
         }

@@ -22,13 +22,12 @@ namespace BotDiscordManager.Core.Services
         {
             await _commands.RegisterCommandsGloballyAsync();
             await _client.SetActivityAsync(new Game("BOT Quản lý , hỗ trợ những việc linh tinh ..... Code By C# Owner : GunDx(dungdzk4#8028)"));
+            BotDiscord.gI().isStarted = true;
         }
 
         public Task ConnectedClientAsync()
         {
-            BotDiscord.gI().isStarted = true;
-
-            Logger.Info($"[Connected/{_client.CurrentUser.Username}] ....");
+            Console.WriteLine($"[Connected/{_client.CurrentUser.Username}] ....");
             return Task.CompletedTask;
         }
 
@@ -37,7 +36,7 @@ namespace BotDiscordManager.Core.Services
         {
             BotDiscord.gI().isStarted = false;
 
-            Logger.Info($"[Disconnected/{_client.CurrentUser?.Username}] {e} ....");
+            Console.WriteLine($"[Disconnected/{_client.CurrentUser?.Username}] {e} ....");
             return Task.CompletedTask;
         }
     }

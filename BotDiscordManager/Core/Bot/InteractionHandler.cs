@@ -1,11 +1,11 @@
 ﻿using BotDiscordManager.Core.Locales;
+using BotDiscordManager.Utils;
 using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace BotDiscordManager.Core.Bot
 {
@@ -36,10 +36,10 @@ namespace BotDiscordManager.Core.Bot
                 switch (arg3.Error)
                 {
                     case InteractionCommandError.UnmetPrecondition:
-                        await arg2.Interaction.RespondAsync($"{Resources.UNMET_PERCONDITON} {arg3.ErrorReason}");
+                        await arg2.Interaction.RespondAsync($"{Resources.UNMET_PRECONDITION} {arg3.ErrorReason}");
                         break;
                     case InteractionCommandError.UnknownCommand:
-                        await arg2.Interaction.RespondAsync($"{Resources.UNMET_PERCONDITON}");
+                        await arg2.Interaction.RespondAsync($"{Resources.UNKNOW_COMMAND}");
                         break;
                     case InteractionCommandError.BadArgs:
                         await arg2.Interaction.RespondAsync($"{Resources.BAD_ARGS}");
@@ -71,7 +71,7 @@ namespace BotDiscordManager.Core.Bot
             }
             catch (Exception ex)
             {
-                Logger.Error($"[Interaction/{arg.User.Username}] {ex.Message} ====> Fail in [Channel/{arg.Channel.Name}]");
+                Console.WriteLine($"[Interaction/{arg.User.Username}] {ex.Message} ====> Fail in [Channel/{arg.Channel.Name}]");
                 if (arg.Type == InteractionType.ApplicationCommand)
                     await arg.GetOriginalResponseAsync().ContinueWith(async (msg) => await msg.Result.DeleteAsync());
             }

@@ -10,7 +10,7 @@ namespace BotDiscordManager.Core.Locales
     {
         public static void load()
         {
-            Resources.UNMET_PERCONDITON = "Bạn không đủ điều kiện:";
+            Resources.UNMET_PRECONDITION = "Bạn không đủ điều kiện:";
             Resources.UNKNOW_COMMAND = "Lệnh không xác định.";
             Resources.BAD_ARGS = "Số hoặc tham số không hợp lệ.";
             Resources.EXCEPTION = "Lệnh ngoại lệ:";

@@ -8,7 +8,7 @@ namespace BotDiscordManager.Core.Locales
 {
     public class Resources
     {
-        public static string UNMET_PERCONDITON;
+        public static string UNMET_PRECONDITION;
         public static string UNKNOW_COMMAND;
         public static string BAD_ARGS;
         public static string EXCEPTION;

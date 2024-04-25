@@ -118,7 +118,7 @@
     <Compile Include="Core\Bot\MyEmbedBuilder.cs" />
     <Compile Include="Core\Bot\CommandHandler.cs" />
     <Compile Include="Core\Bot\InteractionHandler.cs" />
-    <Compile Include="Core\Bot\Utils.cs" />
+    <Compile Include="Core\Bot\UtilsBot.cs" />
     <Compile Include="Core\Locales\Resources.cs" />
     <Compile Include="Core\Locales\Vietnamese.cs" />
     <Compile Include="Core\Services\LoggingService.cs" />
@@ -130,11 +130,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logger.cs" />
     <Compile Include="Modules\Command\AdminMoule.cs" />
     <Compile Include="Modules\Interaction\AdminModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ResourcesForm.cs" />
+    <Compile Include="Utils\VietnameseForm.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +149,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Discord.WebSocket.SocketGuild.datasource" />
+    <None Include="Properties\DataSources\Discord.WebSocket.SocketGuildChannel.datasource" />
+    <None Include="Properties\DataSources\Discord.WebSocket.SocketGuildUser.datasource" />
+    <None Include="Properties\DataSources\Discord.WebSocket.SocketRole.datasource" />
+    <None Include="Properties\DataSources\Discord.WebSocket.SocketTextChannel.datasource" />
+    <None Include="Properties\DataSources\Discord.WebSocket.SocketVoiceChannel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,11 +1,8 @@
-﻿using BotDiscordManager.Core.Bot;
-using Discord;
-using Discord.Commands;
+﻿using Discord.Commands;
 using Discord.WebSocket;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace BotDiscordManager.Core.Bot
 {
@@ -38,11 +35,11 @@ namespace BotDiscordManager.Core.Bot
 
             if (message.Channel is SocketGuildChannel guildChannel)
             {
-                Logger.Debug($"[Message/{message.Author.Username}] {message.Content} ====> [Channel/{guildChannel.Name}, Guild/{guildChannel.Guild.Name}]");
+                Console.WriteLine($"[Message/{message.Author.Username}] {message.Content} ====> [Channel/{guildChannel.Name}, Guild/{guildChannel.Guild.Name}]");
             }
             else if (message.Channel is SocketDMChannel dmChannel)
             {
-                Logger.Debug($"[Message/{message.Author.Username}] {message.Content} ====> [User/{dmChannel.Recipient.Username}]");
+                Console.WriteLine($"[Message/{message.Author.Username}] {message.Content} ====> [User/{dmChannel.Recipient.Username}]");
             } 
 
             int argPos = 0;
