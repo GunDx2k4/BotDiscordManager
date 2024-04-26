@@ -157,11 +157,14 @@ namespace BotDiscordManager
                 return;
             if (string.IsNullOrEmpty(txtNameRole.Text))
             {
-                MessageBox.Show(ResourcesForm.ERROR_TIMESPAN, ResourcesForm.MESSAGE_BOX_NOTIFY);
+                MessageBox.Show(ResourcesForm.NAME_ROLE_PRECONDITION, ResourcesForm.MESSAGE_BOX_NOTIFY);
                 return;
             }
             SocketGuild guild = (SocketGuild)socketGuildBindingSource[cboServers.SelectedIndex];
-            await guild.CreateRoleAsync()
+
+            Color color = UtilsForm.ConvertToUInt(txtColorRole.Text) == 0 ? Color.Blue : new Color(UtilsForm.ConvertToUInt(txtColorRole.Text));
+            await guild.CreateRoleAsync(name: txtNameRole.Text, color: color);
+            MessageBox.Show(string.Format(ResourcesForm.COMPETED_CREATE_ROLE, txtNameRole.Text, guild.Name), ResourcesForm.MESSAGE_BOX_NOTIFY);
         }
     }
 }

@@ -20,5 +20,11 @@ namespace BotDiscordManager.Utils
             }
             return TimeSpan.Zero;
         }
+
+        public static uint ConvertToUInt(string colorHex)
+        {
+            if(!colorHex.StartsWith("#")) return 0;
+            return Convert.ToUInt32(colorHex.Replace("#", ""), 16);
+        }
     }
 }

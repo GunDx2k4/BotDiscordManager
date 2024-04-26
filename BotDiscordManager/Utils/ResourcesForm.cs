@@ -9,5 +9,6 @@
         public static string ERROR_TIMESPAN;
         public static string COMPETED_TIMEOUT_USER;
         public static string NAME_ROLE_PRECONDITION;
+        public static string COMPETED_CREATE_ROLE;
     }
 }
