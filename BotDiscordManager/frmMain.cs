@@ -122,5 +122,33 @@ namespace BotDiscordManager
                 channel.AddPermissionOverwriteAsync(roleEveryone, new OverwritePermissions(viewChannel: permissions, sendMessages: permissions));
             }
         }
+
+        private async void btnBan_Click(object sender, EventArgs e)
+        {
+            if (cboUsers.SelectedIndex == -1) 
+                return;
+            SocketGuildUser user = (SocketGuildUser)socketGuildUserBindingSource[cboUsers.SelectedIndex];
+            await user.BanAsync(options: new RequestOptions() { AuditLogReason = txtReason.Text });
+            MessageBox.Show(string.Format(ResourcesForm.COMPLETED_BAN_USER, user.Username, user.Id, user.Guild.Name), ResourcesForm.MESSAGE_BOX_NOTIFY);
+        }
+
+        private async void btnTimeout_Click(object sender, EventArgs e)
+        {
+            if (cboUsers.SelectedIndex == -1)
+                return;
+
+            TimeSpan span = UtilsForm.ConvertToTimeSpan(txtDurationTimeout.Text);
+
+            if (span == TimeSpan.Zero)
+            {
+                MessageBox.Show(ResourcesForm.ERROR_TIMESPAN, ResourcesForm.MESSAGE_BOX_NOTIFY);
+                return;
+            }
+
+            SocketGuildUser user = (SocketGuildUser)socketGuildUserBindingSource[cboUsers.SelectedIndex];
+            await user.SetTimeOutAsync(span: span, options: new RequestOptions() { AuditLogReason = txtReason.Text });
+
+            MessageBox.Show(string.Format(ResourcesForm.COMPETED_TIMEOUT_USER, user.Username, user.Id, user.Guild.Name, txtDurationTimeout.Text), ResourcesForm.MESSAGE_BOX_NOTIFY);
+        }
     }
 }

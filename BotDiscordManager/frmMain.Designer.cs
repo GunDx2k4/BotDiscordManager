@@ -33,6 +33,12 @@
             this.txtToken = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.grpServers = new System.Windows.Forms.GroupBox();
+            this.btnCreateRole = new System.Windows.Forms.Button();
+            this.txtColorRole = new System.Windows.Forms.TextBox();
+            this.lblColorRole = new System.Windows.Forms.Label();
+            this.lblNameRole = new System.Windows.Forms.Label();
+            this.txtNameRole = new System.Windows.Forms.TextBox();
+            this.btnTimeout = new System.Windows.Forms.Button();
             this.lblReason = new System.Windows.Forms.Label();
             this.chkLockTextChannel = new System.Windows.Forms.CheckBox();
             this.chkLockVoiceChannel = new System.Windows.Forms.CheckBox();
@@ -53,12 +59,8 @@
             this.cboServers = new System.Windows.Forms.ComboBox();
             this.socketGuildBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblServers = new System.Windows.Forms.Label();
-            this.btnTimeout = new System.Windows.Forms.Button();
-            this.lblNameRole = new System.Windows.Forms.Label();
-            this.txtNameRole = new System.Windows.Forms.TextBox();
-            this.lblColorRole = new System.Windows.Forms.Label();
-            this.txtColorRole = new System.Windows.Forms.TextBox();
-            this.btnCreateRole = new System.Windows.Forms.Button();
+            this.txtDurationTimeout = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpServers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.socketTextChannelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.socketRoleBindingSource)).BeginInit();
@@ -95,6 +97,8 @@
             // 
             // grpServers
             // 
+            this.grpServers.Controls.Add(this.label1);
+            this.grpServers.Controls.Add(this.txtDurationTimeout);
             this.grpServers.Controls.Add(this.btnCreateRole);
             this.grpServers.Controls.Add(this.txtColorRole);
             this.grpServers.Controls.Add(this.lblColorRole);
@@ -121,10 +125,61 @@
             this.grpServers.TabStop = false;
             this.grpServers.Text = "Server [name]";
             // 
+            // btnCreateRole
+            // 
+            this.btnCreateRole.Location = new System.Drawing.Point(520, 71);
+            this.btnCreateRole.Name = "btnCreateRole";
+            this.btnCreateRole.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateRole.TabIndex = 15;
+            this.btnCreateRole.Text = "Create role";
+            this.btnCreateRole.UseVisualStyleBackColor = true;
+            // 
+            // txtColorRole
+            // 
+            this.txtColorRole.Location = new System.Drawing.Point(429, 73);
+            this.txtColorRole.Name = "txtColorRole";
+            this.txtColorRole.Size = new System.Drawing.Size(85, 20);
+            this.txtColorRole.TabIndex = 14;
+            // 
+            // lblColorRole
+            // 
+            this.lblColorRole.AutoSize = true;
+            this.lblColorRole.Location = new System.Drawing.Point(372, 76);
+            this.lblColorRole.Name = "lblColorRole";
+            this.lblColorRole.Size = new System.Drawing.Size(51, 13);
+            this.lblColorRole.TabIndex = 13;
+            this.lblColorRole.Text = "Color role";
+            // 
+            // lblNameRole
+            // 
+            this.lblNameRole.AutoSize = true;
+            this.lblNameRole.Location = new System.Drawing.Point(220, 76);
+            this.lblNameRole.Name = "lblNameRole";
+            this.lblNameRole.Size = new System.Drawing.Size(55, 13);
+            this.lblNameRole.TabIndex = 11;
+            this.lblNameRole.Text = "Name role";
+            // 
+            // txtNameRole
+            // 
+            this.txtNameRole.Location = new System.Drawing.Point(281, 73);
+            this.txtNameRole.Name = "txtNameRole";
+            this.txtNameRole.Size = new System.Drawing.Size(85, 20);
+            this.txtNameRole.TabIndex = 12;
+            // 
+            // btnTimeout
+            // 
+            this.btnTimeout.Location = new System.Drawing.Point(654, 44);
+            this.btnTimeout.Name = "btnTimeout";
+            this.btnTimeout.Size = new System.Drawing.Size(80, 23);
+            this.btnTimeout.TabIndex = 10;
+            this.btnTimeout.Text = "Timeout user";
+            this.btnTimeout.UseVisualStyleBackColor = true;
+            this.btnTimeout.Click += new System.EventHandler(this.btnTimeout_Click);
+            // 
             // lblReason
             // 
             this.lblReason.AutoSize = true;
-            this.lblReason.Location = new System.Drawing.Point(220, 51);
+            this.lblReason.Location = new System.Drawing.Point(231, 51);
             this.lblReason.Name = "lblReason";
             this.lblReason.Size = new System.Drawing.Size(44, 13);
             this.lblReason.TabIndex = 5;
@@ -167,6 +222,7 @@
             this.btnBan.TabIndex = 5;
             this.btnBan.Text = "Ban user";
             this.btnBan.UseVisualStyleBackColor = true;
+            this.btnBan.Click += new System.EventHandler(this.btnBan_Click);
             // 
             // cboTextChannels
             // 
@@ -300,55 +356,21 @@
             this.lblServers.TabIndex = 2;
             this.lblServers.Text = "Servers";
             // 
-            // btnTimeout
+            // txtDurationTimeout
             // 
-            this.btnTimeout.Location = new System.Drawing.Point(541, 46);
-            this.btnTimeout.Name = "btnTimeout";
-            this.btnTimeout.Size = new System.Drawing.Size(80, 23);
-            this.btnTimeout.TabIndex = 10;
-            this.btnTimeout.Text = "Timeout user";
-            this.btnTimeout.UseVisualStyleBackColor = true;
+            this.txtDurationTimeout.Location = new System.Drawing.Point(594, 46);
+            this.txtDurationTimeout.Name = "txtDurationTimeout";
+            this.txtDurationTimeout.Size = new System.Drawing.Size(54, 20);
+            this.txtDurationTimeout.TabIndex = 16;
             // 
-            // lblNameRole
+            // label1
             // 
-            this.lblNameRole.AutoSize = true;
-            this.lblNameRole.Location = new System.Drawing.Point(220, 76);
-            this.lblNameRole.Name = "lblNameRole";
-            this.lblNameRole.Size = new System.Drawing.Size(55, 13);
-            this.lblNameRole.TabIndex = 11;
-            this.lblNameRole.Text = "Name role";
-            // 
-            // txtNameRole
-            // 
-            this.txtNameRole.Location = new System.Drawing.Point(281, 73);
-            this.txtNameRole.Name = "txtNameRole";
-            this.txtNameRole.Size = new System.Drawing.Size(85, 20);
-            this.txtNameRole.TabIndex = 12;
-            // 
-            // lblColorRole
-            // 
-            this.lblColorRole.AutoSize = true;
-            this.lblColorRole.Location = new System.Drawing.Point(372, 76);
-            this.lblColorRole.Name = "lblColorRole";
-            this.lblColorRole.Size = new System.Drawing.Size(51, 13);
-            this.lblColorRole.TabIndex = 13;
-            this.lblColorRole.Text = "Color role";
-            // 
-            // txtColorRole
-            // 
-            this.txtColorRole.Location = new System.Drawing.Point(429, 73);
-            this.txtColorRole.Name = "txtColorRole";
-            this.txtColorRole.Size = new System.Drawing.Size(85, 20);
-            this.txtColorRole.TabIndex = 14;
-            // 
-            // btnCreateRole
-            // 
-            this.btnCreateRole.Location = new System.Drawing.Point(520, 71);
-            this.btnCreateRole.Name = "btnCreateRole";
-            this.btnCreateRole.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateRole.TabIndex = 15;
-            this.btnCreateRole.Text = "Create role";
-            this.btnCreateRole.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(541, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Duration";
             // 
             // frmMain
             // 
@@ -409,6 +431,8 @@
         private System.Windows.Forms.TextBox txtColorRole;
         private System.Windows.Forms.Label lblColorRole;
         private System.Windows.Forms.Button btnCreateRole;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDurationTimeout;
     }
 }
 
