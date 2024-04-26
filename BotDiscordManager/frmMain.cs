@@ -150,5 +150,18 @@ namespace BotDiscordManager
 
             MessageBox.Show(string.Format(ResourcesForm.COMPETED_TIMEOUT_USER, user.Username, user.Id, user.Guild.Name, txtDurationTimeout.Text), ResourcesForm.MESSAGE_BOX_NOTIFY);
         }
+
+        private async void btnCreateRole_Click(object sender, EventArgs e)
+        {
+            if (cboServers.SelectedIndex == -1)
+                return;
+            if (string.IsNullOrEmpty(txtNameRole.Text))
+            {
+                MessageBox.Show(ResourcesForm.ERROR_TIMESPAN, ResourcesForm.MESSAGE_BOX_NOTIFY);
+                return;
+            }
+            SocketGuild guild = (SocketGuild)socketGuildBindingSource[cboServers.SelectedIndex];
+            await guild.CreateRoleAsync()
+        }
     }
 }

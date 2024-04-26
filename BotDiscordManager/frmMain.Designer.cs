@@ -133,6 +133,7 @@
             this.btnCreateRole.TabIndex = 15;
             this.btnCreateRole.Text = "Create role";
             this.btnCreateRole.UseVisualStyleBackColor = true;
+            this.btnCreateRole.Click += new System.EventHandler(this.btnCreateRole_Click);
             // 
             // txtColorRole
             // 
